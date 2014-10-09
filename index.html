@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        body 
+        {
+            overflow:hidden;
+        }
+        #div-loading-parent
+        {
+            position: absolute;
+            z-index: 20001;
+            height: 100%;
+            width: 100%;
+        }
+        
+        #div-loading-indicator
+        {
+            font-size: large;
+            font-family: tahoma,arial,verdana,sans-serif;
+            background: none repeat scroll 0 0 black;
+            border-radius: 1em;
+            color: white;
+            left: 50%;
+            margin-right: -50%;
+            padding: 1em;
+            position: absolute;
+            top: 30%;
+            transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+        }
+    </style>
+    <script type="text/javascript">
+        var Ext = Ext || {};
+
+        Ext.beforeLoad = function (tags) {
+            console.log('Ext.beforeLoad');
+            Ext.disableCacheBuster(true);
+        };
+    </script>
+</head>
+<body>
+    <div id="div-loading-parent">
+        <div id="div-loading-indicator">
+            Loading app. Please wait...</div>
+    </div>
+    <xscript type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&sensor=false"></xscript>
+    <!-- The line below must be kept intact for Sencha Cmd to build your application -->
+    <script id="microloader" type="text/javascript" src="bootstrap.js"></script>
+    <script>
+        document.title = 'Loading. Please wait.';
+    </script>
+</body>
+</html>
